@@ -1,62 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
-const Header = () => {
-  return (
-    <div className="header">
-      <div className="logo-container">
-        <img
-          className="logo"
-          src="https://i.pinimg.com/originals/30/7e/81/307e8154e87ffc5d2f823cd50b174dee.gif"
-        />
-      </div>
-      <div className="nav-items">
-        <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact Us</li>
-          <li>Cart</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-
-const styleCard = {
-  backgroundColor: "cyan",
-};
+import Header from "./components/Header";
+import Body from "./components/Body";
 
 
-const RestaurantCard = (props) => {
-  const { resData } = props;
 
-  const {
-    cloudinaryImageId,
-    name,
-    avgRating,
-    cuisines,
-    costForTwo,
-    deliveryTime,
-  } = resData?.info;
 
-  return (
-    <div className="restaurant-card" style={{ backgroundColor: "#f0f0f0" }}>
-      <img
-        className="res-logo"
-        alt="res-logo"
-        src={
-          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-          cloudinaryImageId
-        }
-      />
-      <h3>{name}</h3>
-      <h4>{cuisines.join(",")}</h4>
-      <h4>{avgRating}</h4>
-      <h4>{costForTwo}</h4>
-      <h4>{deliveryTime}</h4>
-    </div>
-  );
-};
+
+
+
 
 const resList = [
   {
@@ -856,18 +808,7 @@ const resList = [
   },
 ];
 
-const Body = () => {
-  return (
-    <div className="body">
-      <div className="search">Search</div>
-      <div className="restaurant-container">
-        {resList.map((restaurant) => (
-          <RestaurantCard key = {restaurant.info.id} resData={restaurant} />
-        ))}
-      </div>
-    </div>
-  );
-};
+
 
 const AppLayout = () => {
   return (
