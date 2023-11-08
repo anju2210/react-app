@@ -1,253 +1,82 @@
 import RestaurantCard from "./RestaurantCard";
-import resList from "../utils/mockData";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
-    //local state variable
-    const [listOfRestaurants, setListOfRestaurants] = useState(resList);
+  //local state variable
+  const [listOfRestaurants, setListOfRestaurants] = useState([]);
+  
+  const [listOfFilteredRestaurants,setListOfFilteredRestaurants] = useState([]);
 
-    //normal js variable
-    // let listOfRestaurants = [{
-    //     "info": {
-    //       "id": "99142",
-    //       "name": "Arjun Da Dhaba - Pure Veg",
-    //       "cloudinaryImageId": "de96dyjxve1hpceq4ay7",
-    //       "locality": "Kohka",
-    //       "areaName": "Junwani Road",
-    //       "costForTwo": "₹200 for two",
-    //       "cuisines": [
-    //         "North Indian",
-    //         "Chinese",
-    //         "Biryani",
-    //         "Indian",
-    //         "Snacks",
-    //         "Fast Food"
-    //       ],
-    //       "avgRating": 3.7,
-    //       "veg": true,
-    //       "feeDetails": {
-    //         "restaurantId": "99142",
-    //         "fees": [
-    //           {
-    //             "name": "BASE_DISTANCE",
-    //             "fee": 2200
-    //           },
-    //           {
-    //             "name": "BASE_TIME"
-    //           },
-    //           {
-    //             "name": "ANCILLARY_SURGE_FEE"
-    //           }
-    //         ],
-    //         "totalFee": 2200
-    //       },
-    //       "parentId": "35927",
-    //       "avgRatingString": "3.7",
-    //       "totalRatingsString": "5K+",
-    //       "sla": {
-    //         "deliveryTime": 27,
-    //         "lastMileTravel": 4.9,
-    //         "serviceability": "SERVICEABLE",
-    //         "slaString": "27 mins",
-    //         "lastMileTravelString": "4.9 km",
-    //         "iconType": "ICON_TYPE_EMPTY"
-    //       },
-    //       "availability": {
-    //         "nextCloseTime": "2023-11-03 23:59:00",
-    //         "opened": true
-    //       },
-    //       "badges": {
-    //         "imageBadges": [
-    //           {
-    //             "imageId": "v1695133679/badges/Pure_Veg111.png",
-    //             "description": "pureveg"
-    //           }
-    //         ]
-    //       },
-    //       "isOpen": true,
-    //       "type": "F",
-    //       "badgesV2": {
-    //         "entityBadges": {
-    //           "imageBased": {
-    //             "badgeObject": [
-    //               {
-    //                 "attributes": {
-    //                   "description": "pureveg",
-    //                   "imageId": "v1695133679/badges/Pure_Veg111.png"
-    //                 }
-    //               }
-    //             ]
-    //           },
-    //           "textBased": {
-                
-    //           },
-    //           "textExtendedBadges": {
-                
-    //           }
-    //         }
-    //       },
-    //       "aggregatedDiscountInfoV3": {
-    //         "header": "₹150 OFF",
-    //         "subHeader": "ABOVE ₹349",
-    //         "discountTag": "FLAT DEAL"
-    //       },
-    //       "differentiatedUi": {
-    //         "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-    //         "differentiatedUiMediaDetails": {
-    //           "mediaType": "ADS_MEDIA_ENUM_IMAGE",
-    //           "lottie": {
-                
-    //           },
-    //           "video": {
-                
-    //           }
-    //         }
-    //       },
-    //       "reviewsSummary": {
-            
-    //       },
-    //       "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-    //       "restaurantOfferPresentationInfo": {
-            
-    //       }
-    //     }
-    //   },
-    //   {
-    //     "info": {
-    //       "id": "112831",
-    //       "name": "Ramdev's Khana Khazana - Risali",
-    //       "cloudinaryImageId": "pgvlzt2ah1ndqdw0uujn",
-    //       "locality": "Risali",
-    //       "areaName": "Maitrinagar",
-    //       "costForTwo": "₹300 for two",
-    //       "cuisines": [
-    //         "Thalis",
-    //         "North Indian",
-    //         "Chinese",
-    //         "Biryani",
-    //         "Snacks",
-    //         "Salads",
-    //         "North Eastern",
-    //         "Hyderabadi"
-    //       ],
-    //       "avgRating": 4.1,
-    //       "veg": true,
-    //       "feeDetails": {
-    //         "restaurantId": "112831",
-    //         "fees": [
-    //           {
-    //             "name": "BASE_DISTANCE",
-    //             "fee": 3700
-    //           },
-    //           {
-    //             "name": "BASE_TIME"
-    //           },
-    //           {
-    //             "name": "ANCILLARY_SURGE_FEE"
-    //           }
-    //         ],
-    //         "totalFee": 3700
-    //       },
-    //       "parentId": "166556",
-    //       "avgRatingString": "4.1",
-    //       "totalRatingsString": "1K+",
-    //       "sla": {
-    //         "deliveryTime": 36,
-    //         "lastMileTravel": 9.4,
-    //         "serviceability": "SERVICEABLE",
-    //         "slaString": "36 mins",
-    //         "lastMileTravelString": "9.4 km",
-    //         "iconType": "ICON_TYPE_EMPTY"
-    //       },
-    //       "availability": {
-    //         "nextCloseTime": "2023-11-03 22:40:00",
-    //         "opened": true
-    //       },
-    //       "badges": {
-    //         "imageBadges": [
-    //           {
-    //             "imageId": "v1695133679/badges/Pure_Veg111.png",
-    //             "description": "pureveg"
-    //           }
-    //         ]
-    //       },
-    //       "isOpen": true,
-    //       "type": "F",
-    //       "badgesV2": {
-    //         "entityBadges": {
-    //           "imageBased": {
-    //             "badgeObject": [
-    //               {
-    //                 "attributes": {
-    //                   "description": "pureveg",
-    //                   "imageId": "v1695133679/badges/Pure_Veg111.png"
-    //                 }
-    //               }
-    //             ]
-    //           },
-    //           "textBased": {
-                
-    //           },
-    //           "textExtendedBadges": {
-                
-    //           }
-    //         }
-    //       },
-    //       "aggregatedDiscountInfoV3": {
-    //         "header": "₹150 OFF",
-    //         "subHeader": "ABOVE ₹349",
-    //         "discountTag": "FLAT DEAL"
-    //       },
-    //       "differentiatedUi": {
-    //         "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-    //         "differentiatedUiMediaDetails": {
-    //           "mediaType": "ADS_MEDIA_ENUM_IMAGE",
-    //           "lottie": {
-                
-    //           },
-    //           "video": {
-                
-    //           }
-    //         }
-    //       },
-    //       "reviewsSummary": {
-            
-    //       },
-    //       "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-    //       "restaurantOfferPresentationInfo": {
-            
-    //       }
-    //     },
-    //     "analytics": {
-          
-    //     },
-    //     "cta": {
-    //       "link": "https://www.swiggy.com/restaurants/ramdevs-khana-khazana-risali-risali-maitrinagar-bhilai-112831",
-    //       "type": "WEBLINK"
-    //     }
-    //   }
-    // ];
+  const [searchText, setSearchText] = useState("");
 
-  return (
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.2214386&lng=81.3701881&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+
+    const json = await data.json();
+    console.log(json);
+
+    setListOfRestaurants(
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    setListOfFilteredRestaurants(
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+  };
+
+  //  if(listOfRestaurants.length===0){
+  //   return ;
+  //  }
+
+  return listOfRestaurants.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body">
       <div className="filter">
+        <div className="search">
+          <input
+            type="text"
+            className="search-box"
+            value={searchText}
+            onChange={(e) => {
+              setSearchText(e.target.value);
+            }}
+          />
+          <button
+            onClick={() => {
+              //Filter the restaurant cards and update the UI
+              console.log(searchText);
+
+              let filteredRestaurants = listOfRestaurants.filter((res) =>
+                res.info.name.toLowerCase().includes(searchText.toLowerCase())
+              );
+
+              setListOfFilteredRestaurants(filteredRestaurants);
+            }}
+          >
+            Search
+          </button>
+        </div>
         <button
           className="filter-btn"
           onClick={() => {
-            
-
-            let filteredList = listOfRestaurants.filter(
-              (res) => res.info.avgRating >4
+            let filteredList = listOfFilteredRestaurants.filter(
+              (res) => res.info.avgRating > 4
             );
-            setListOfRestaurants(filteredList);
+            setListOfFilteredRestaurants(filteredList);
           }}
-        
         >
           Top Rated Restaurants
         </button>
       </div>
       <div className="restaurant-container">
-        {listOfRestaurants.map((restaurant) => (
+        {listOfFilteredRestaurants.map((restaurant) => (
           <RestaurantCard key={restaurant.info.id} resData={restaurant} />
         ))}
       </div>
