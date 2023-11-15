@@ -2,12 +2,15 @@ import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   //local state variable
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
-  
-  const [listOfFilteredRestaurants,setListOfFilteredRestaurants] = useState([]);
+
+  const [listOfFilteredRestaurants, setListOfFilteredRestaurants] = useState(
+    []
+  );
 
   const [searchText, setSearchText] = useState("");
 
@@ -31,14 +34,23 @@ const Body = () => {
     );
   };
 
-   if(listOfRestaurants.length===0){
-    return <Shimmer />;
-   }
+  const onlineStatus = useOnlineStatus();
 
-  // return listOfRestaurants.length === 0 ? (
-  //   <Shimmer />
-  // ) : (
+  if (onlineStatus === false)
     return (
+      <h1>
+        Looks like you are offline!! Please check your Internet connection
+      </h1>
+    );
+
+  // if (listOfRestaurants.length === 0) {
+  //   return <Shimmer />;
+  // }
+
+  return listOfRestaurants.length === 0 ? (
+    <Shimmer />
+  ) : (
+  // return (
     <div className="body">
       <div className="filter">
         <div className="search">
@@ -79,7 +91,12 @@ const Body = () => {
       </div>
       <div className="restaurant-container">
         {listOfFilteredRestaurants.map((restaurant) => (
-          <Link key={restaurant.info.id} to = {"/restaurants/"+restaurant.info.id}><RestaurantCard resData={restaurant} /></Link>
+          <Link
+            key={restaurant.info.id}
+            to={"/restaurants/" + restaurant.info.id}
+          >
+            <RestaurantCard resData={restaurant} />
+          </Link>
         ))}
       </div>
     </div>
