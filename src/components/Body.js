@@ -52,7 +52,7 @@ const Body = () => {
   //   return <Shimmer />;
   // }
 
-  const { loggedInUser,setUserName } = useContext(UserContext);
+  const { loggedInUser, setUserName } = useContext(UserContext);
 
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
@@ -63,6 +63,7 @@ const Body = () => {
         <div className="search m-4 p-4">
           <input
             type="text"
+            data-testid="searchInput"
             className="border border-solid border-black"
             value={searchText}
             onChange={(e) => {
@@ -103,7 +104,7 @@ const Body = () => {
           <label>Username: </label>
           <input
             className="border border-black p-2"
-            value = {loggedInUser}
+            value={loggedInUser}
             onChange={(e) => setUserName(e.target.value)}
           />
         </div>

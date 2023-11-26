@@ -1,0 +1,90 @@
+{
+  "info": {
+    "id": "100492",
+    "name": "Keventers - Milkshakes & Desserts",
+    "cloudinaryImageId": "89707df532fd993b3d79a1a28038a901",
+    "locality": "Bhilai Nagar Township",
+    "areaName": "Durg Bhilai",
+    "costForTwo": "₹200 for two",
+    "cuisines": ["Beverages", "Ice Cream", "Desserts", "Healthy Food"],
+    "avgRating": 4.2,
+    "veg": true,
+    "feeDetails": {
+      "restaurantId": "100492",
+      "fees": [
+        {
+          "name": "BASE_DISTANCE",
+          "fee": 3800
+        },
+        {
+          "name": "BASE_TIME"
+        },
+        {
+          "name": "ANCILLARY_SURGE_FEE"
+        }
+      ],
+      "totalFee": 3800
+    },
+    "parentId": "268997",
+    "avgRatingString": "4.2",
+    "totalRatingsString": "1K+",
+    "sla": {
+      "deliveryTime": 31,
+      "lastMileTravel": 6.1,
+      "serviceability": "SERVICEABLE",
+      "slaString": "31 mins",
+      "lastMileTravelString": "6.1 km",
+      "iconType": "ICON_TYPE_EMPTY"
+    },
+    "availability": {
+      "nextCloseTime": "2023-11-25 22:30:00",
+      "opened": true
+    },
+    "badges": {
+      "imageBadges": [
+        {
+          "imageId": "v1695133679/badges/Pure_Veg111.png",
+          "description": "pureveg"
+        }
+      ]
+    },
+    "isOpen": true,
+    "type": "F",
+    "badgesV2": {
+      "entityBadges": {
+        "imageBased": {
+          "badgeObject": [
+            {
+              "attributes": {
+                "description": "pureveg",
+                "imageId": "v1695133679/badges/Pure_Veg111.png"
+              }
+            }
+          ]
+        },
+        "textBased": {},
+        "textExtendedBadges": {}
+      }
+    },
+    "aggregatedDiscountInfoV3": {
+      "header": "50% OFF",
+      "subHeader": "UPTO ₹100"
+    },
+    "differentiatedUi": {
+      "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+      "differentiatedUiMediaDetails": {
+        "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+        "lottie": {},
+        "video": {}
+      }
+    },
+    "reviewsSummary": {},
+    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+    "restaurantOfferPresentationInfo": {}
+  },
+  "analytics": {},
+  "cta": {
+    "link": "https://www.swiggy.com/restaurants/keventers-milkshakes-and-desserts-nagar-township-durg-bhilai-bhilai-100492",
+    "type": "WEBLINK"
+  }
+}
