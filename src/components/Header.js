@@ -17,29 +17,31 @@ const Header = () => {
   const cartItems = useSelector((store) => store.cart.items);
 
   return (
-    <div className="flex justify-between bg-pink-100 sm:bg-yellow-50  lg:bg-green-50">
+    <div className="flex justify-between bg-pink-100 sm:bg-yellow-50  lg:bg-indigo-100">
       <div className="logo-container">
         <img className="w-60" src={LOGO_URL} />
       </div>
       <div className="nav-items flex items-center">
         <ul className="flex p-4 m-4">
-          <li className="px-4">Online Status: {onlineStatus ? "🟢" : "🔴"}</li>
-          <li className="px-4">
+          <li className="p-2 lg:px-4 md:mx-2  text-xl font-medium leading-tight text-primary">
+            Online Status: {onlineStatus ? "🟢" : "🔴"}
+          </li>
+          <li className="p-2 lg:px-4 md:mx-2  rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300 text-xl font-medium leading-tight text-primary">
             <Link to="/">Home</Link>
           </li>
-          <li className="px-4">
+          <li className="p-2 lg:px-4 md:mx-2  rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300 text-xl font-medium leading-tight text-primary">
             <Link to="/about">About</Link>
           </li>
-          <li className="px-4">
+          {/* <li className="p-2 lg:px-4 md:mx-2  rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300 text-xl font-medium leading-tight text-primary">
             <Link to="/contact">Contact Us</Link>
-          </li>
-          <li className="px-4">
+          </li> */}
+          {/* <li className="p-2 lg:px-4 md:mx-2  rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">
             <Link to="/grocery">Grocery</Link>
-          </li>
-          <li className="px-4 font-bold text-xl">
+          </li> */}
+          <li className=" font-medium text-xl leading-tight text-primary p-2 lg:px-4 md:mx-2  rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">
             <Link to="/cart">Cart ({cartItems.length} items)</Link>
           </li>
-          <button
+          {/* <button
             className="login"
             onClick={() => {
               btnNameReact === "Login"
@@ -48,9 +50,11 @@ const Header = () => {
             }}
           >
             {btnNameReact}
-          </button>
+          </button> */}
 
-          <li className="px-4 font-bold">{loggedInUser}</li>
+          {/* <li className=" font-bold p-2 lg:px-4 md:mx-2  rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">
+            {loggedInUser}
+          </li> */}
         </ul>
       </div>
     </div>

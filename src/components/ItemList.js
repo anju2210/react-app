@@ -20,7 +20,7 @@ const ItemList = ({ items }) => {
           className="p-2 m-2 border-gray-200 border-b-2 text-left flex justify-between"
         >
           <div className="w-9/12">
-            <div className="py-2">
+            <div className="py-2 font-medium">
               <span>{item.card.info.name}</span>
               <span>
                 - ₹
@@ -29,10 +29,10 @@ const ItemList = ({ items }) => {
                   : item.card.info.defaultPrice / 100}
               </span>
             </div>
-            <p className="text-xs">{item.card.info.description}</p>
+            <p className="text-s font-normal">{item.card.info.description}</p>
           </div>
-          <div className="p-4 w-3/12">
-            <div className="absolute">
+          <div className="p-4 w-3/12 ">
+            <div className="absolute ">
               <button
                 className="p-2 mx-16 rounded-lg bg-black text-white shadow-lg"
                 onClick={() => handleAddItem(item)}
@@ -40,7 +40,10 @@ const ItemList = ({ items }) => {
                 Add +
               </button>
             </div>
-            <img src={CDN_URL + item.card.info.imageId} className="w-full" />
+            <img
+              src={CDN_URL + item.card.info.imageId}
+              className="w-full h-40"
+            />
           </div>
         </div>
       ))}
